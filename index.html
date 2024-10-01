@@ -70,23 +70,23 @@
     <button id="submit">제출</button>
 
     <script>
-        const audio = new Audio("https://example.com/song.mp3"); // 노래 URL을 입력하세요
-        const correctAnswer = "노래 제목"; // 정답을 입력하세요
+    const audio = new Audio("https://valid-audio-url.com/song.mp3"); // 실제 오디오 파일 URL 입력
+    const correctAnswer = "노래 제목"; // 정답 입력
 
-        document.getElementById("play").addEventListener("click", () => {
-            audio.play();
+    document.getElementById("play").addEventListener("click", () => {
+        audio.play().catch(error => {
+            console.error("오디오 재생 오류:", error);
         });
+    });
 
-        document.getElementById("submit").addEventListener("click", () => {
-            const userAnswer = document.getElementById("answer").value.trim();
-            const resultDiv = document.getElementById("result");
+    document.getElementById("submit").addEventListener("click", () => {
+        const userAnswer = document.getElementById("answer").value.trim();
+        const resultDiv = document.getElementById("result");
 
-            if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
-                resultDiv.textContent = "정답입니다!";
-            } else {
-                resultDiv.textContent = "틀렸습니다. 다시 시도해보세요.";
-            }
-        });
-    </script>
-</body>
-</html>
+        if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+            resultDiv.textContent = "정답입니다!";
+        } else {
+            resultDiv.textContent = "틀렸습니다. 다시 시도해보세요.";
+        }
+    });
+</script>
