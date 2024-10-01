@@ -70,24 +70,42 @@
     <button id="submit">제출</button>
 
     <script>
-    const audio = new Audio("https://example.com/song.mp3"); // 실제 오디오 파일 URL로 변경
-    const correctAnswer = "노래 제목"; // 정답 입력
+        const songs = [
+            { url: "https://m.youtube.com/watch?v=frjtBcNI6dI", answer: "Tidal Wave" },
+            { url: "https://m.youtube.com/watch?v=oh0FyZHZST8", answer: "Acheron" },
+            { url: "https://m.youtube.com/watch?v=vnwS2YWCDW8", answer: "Silent Clubstep" },
+            { url: "https://m.youtube.com/watch?v=JL30R7f-iBE", answer: "Avernus" },
+            { url: "https://m.youtube.com/watch?v=0GC5og7gVS0", answer: "Tunnel of Despair" },
+            { url: "https://m.youtube.com/watch?v=G7c-EP8Rz98", answer: "Abyss of Darkness" },
+            { url: "https://m.youtube.com/watch?v=-1HykdidMjY", answer: "Kyouki" },
+            { url: "https://m.youtube.com/watch?v=7W5bZJY2IPI", answer: "Slaughterhouse" },
+            { url: "https://m.youtube.com/watch?v=b66_Oe4Xo1w", answer: "Sakupen Circles" },
+            { url: "https://m.youtube.com/watch?v=ulaXL0SdzZk", answer: "KOCMOC" },
+        ];
 
-    document.getElementById("play").addEventListener("click", () => {
-        audio.play().catch(error => {
-            console.error("오디오 재생 오류:", error);
-            alert("오디오 재생에 실패했습니다. URL을 확인하세요.");
+        let currentSongIndex = -1;
+
+        document.getElementById("play").addEventListener("click", () => {
+            currentSongIndex = Math.floor(Math.random() * songs.length);
+            const audio = new Audio(songs[currentSongIndex].url);
+            audio.play().catch(error => {
+                console.error("오디오 재생 오류:", error);
+                alert("오디오 재생에 실패했습니다. URL을 확인하세요.");
+            });
         });
-    });
 
-    document.getElementById("submit").addEventListener("click", () => {
-        const userAnswer = document.getElementById("answer").value.trim();
-        const resultDiv = document.getElementById("result");
+        document.getElementById("submit").addEventListener("click", () => {
+            const userAnswer = document.getElementById("answer").value.trim();
+            const resultDiv = document.getElementById("result");
 
-        if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
-            resultDiv.textContent = "정답입니다!";
-        } else {
-            resultDiv.textContent = "틀렸습니다. 다시 시도해보세요.";
-        }
-    });
-</script>
+            if (userAnswer.toLowerCase() === songs[currentSongIndex].answer.toLowerCase()) {
+                resultDiv.textContent = "정답입니다! 잘했어요!";
+            } else {
+                resultDiv.textContent = `틀렸어요. 정답은 ${songs[currentSongIndex].answer}입니다.`;
+            }
+            document.getElementById("answer").value = "";
+        });
+    </script>
+</body>
+</html>
+
