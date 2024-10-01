@@ -3,143 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>랭킹 사이트</title>
+    <title>노래 맞추기 퀴즈</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
             padding: 20px;
         }
-        #result {
-            margin-top: 20px;
-            font-weight: bold;
+        h1 {
+            color: #333;
+        }
+        .quiz-container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .song {
+            margin: 10px 0;
+        }
+        iframe {
+            width: 100%;
+            height: 315px;
+            border: none;
+        }
+        .answer-input {
+            margin: 10px 0;
+            padding: 10px;
+            width: calc(100% - 22px);
+            font-size: 16px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <h1>1위부터 100위까지 랭킹</h1>
-    <ol>
-        <li><a href="https://m.youtube.com/watch?v=frjtBcNI6dI">Tidal Wave</a></li>
-        <li><a href="https://m.youtube.com/watch?v=oh0FyZHZST8">Acheron</a></li>
-        <li><a href="https://m.youtube.com/watch?v=vnwS2YWCDW8">Silent Clubstep</a></li>
-        <li><a href="https://m.youtube.com/watch?v=JL30R7f-iBE">Avernus</a></li>
-        <li><a href="https://m.youtube.com/watch?v=0GC5og7gVS0">Tunnel of Despair</a></li>
-        <li><a href="https://m.youtube.com/watch?v=G7c-EP8Rz98">Abyss of Darkness</a></li>
-        <li><a href="https://m.youtube.com/watch?v=-1HykdidMjY">Kyouki</a></li>
-        <li><a href="https://m.youtube.com/watch?v=7W5bZJY2IPI">Slaughterhouse</a></li>
-        <li><a href="https://m.youtube.com/watch?v=b66_Oe4Xo1w">Sakupen Circles</a></li>
-        <li><a href="https://m.youtube.com/watch?v=ulaXL0SdzZk">KOCMOC</a></li>
-        <li><a href="https://m.youtube.com/watch?v=MkJK_YHwWgI">Menace</a></li>
-        <li><a href="https://m.youtube.com/watch?v=SuaAscUC8UM">Firework</a></li>
-        <li><a href="https://m.youtube.com/watch?v=pse3o6pUCzo">MINUSdry</a></li>
-        <li><a href="https://m.youtube.com/watch?v=DCbXHYwW7r0">The Lightning Rod</a></li>
-        <li><a href="https://m.youtube.com/watch?v=tEm59VdSJGE">Deimos</a></li>
-        <li><a href="https://m.youtube.com/watch?v=OkCLVqswX98">KOSETSU</a></li>
-        <li><a href="https://m.youtube.com/watch?v=VdVQkK3G234&t=16s">poocubed</a></li>
-        <li><a href="https://m.youtube.com/watch?v=8LIrRIGOR-o">Saul Goodman</a></li>
-        <li><a href="https://m.youtube.com/watch?v=m-K_rTnRrLA">Eyes in the water</a></li>
-        <li><a href="https://m.youtube.com/watch?v=XbbVDhn5XYM">Solar Flare</a></li>
-        <li><a href="https://m.youtube.com/watch?v=lhS5t25yQ8A">Belladonna</a></li>
-        <li><a href="https://m.youtube.com/watch?v=Mqd6UabJOE4">The Hallucination</a></li>
-        <li><a href="https://m.youtube.com/watch?v=KaWAdxssH2w">COMBUSTION</a></li>
-        <li><a href="https://m.youtube.com/watch?v=gGz9rPR4pbw">LIMBO</a></li>
-        <li><a href="https://m.youtube.com/watch?v=At8bF2pw-qk">Edge of Destiny</a></li>
-        <li><a href="https://m.youtube.com/watch?v=ti5G-c3wcM0">Codependence</a></li>
-        <li><a href="https://m.youtube.com/watch?v=pKJUmSJR22Y">Mayhem</a></li>
-        <li><a href="https://m.youtube.com/watch?v=xg93mOaaG5I">walter white</a></li>
-        <li><a href="https://m.youtube.com/watch?v=1MBFbmZXv9s">Deadlier Clubstep</a></li>
-        <li><a href="https://m.youtube.com/watch?v=VA9RLSwoRo8">PSYCHOPATH</a></li>
-        <li><a href="https://m.youtube.com/watch?v=bPeKRImkZ2U">SARYYX NEVER CLEAR</a></li>
-        <li><a href="https://m.youtube.com/watch?v=wHXFFnmMB1Q">Arcturus</a></li>
-        <li><a href="https://m.youtube.com/watch?v=MDutuGulI_8&t=1s">Sinister Silence</a></li>
-        <li><a href="https://m.youtube.com/watch?v=ok0F32z3WCw">UNKNOWN</a></li>
-        <li><a href="https://m.youtube.com/watch?v=UQVNbhQEiLE">Sonic Wave Infinity</a></li>
-        <li><a href="https://m.youtube.com/watch?v=4rW5LcILMMo">Damascus</a></li>
-        <li><a href="https://m.youtube.com/watch?v=iTtXXMdM8qs">Midnight</a></li>
-        <li><a href="https://m.youtube.com/watch?v=ORuFKkED9hg">Tartarus</a></li>
-        <li><a href="https://m.youtube.com/watch?v=KgRPhglipsU">Jigsaw</a></li>
-        <li><a href="https://m.youtube.com/watch?v=QNs14m3HxJE">Oblivion</a></li>
-        <li><a href="https://m.youtube.com/watch?v=CK2xctLZxD0">BloodLust</a></li>
-        <li><a href="https://m.youtube.com/watch?v=Xzb7apPvDos">BloodBath</a></li>
-    </ol>
+    <div class="quiz-container">
+        <h1>노래 맞추기 퀴즈</h1>
+        <p>아래에서 노래를 들어보세요. 어떤 노래인지 맞춰보세요!</p>
 
-    <h2>노래 퀴즈</h2>
-    <button id="play">노래 재생</button>
-    <div id="result"></div>
-    <input type="text" id="answer" placeholder="정답 입력">
-    <button id="submit">제출</button>
+        <div id="songContainer" class="song">
+            <iframe id="songPlayer" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <input type="text" placeholder="노래 제목을 입력하세요" class="answer-input" id="answerInput">
+            <button class="btn" id="nextSongButton">다음 노래</button>
+        </div>
+    </div>
 
     <script>
         const songs = [
-            { url: "https://m.youtube.com/watch?v=frjtBcNI6dI", answer: "Tidal Wave" },
-            { url: "https://m.youtube.com/watch?v=oh0FyZHZST8", answer: "Acheron" },
-            { url: "https://m.youtube.com/watch?v=vnwS2YWCDW8", answer: "Silent Clubstep" },
-            { url: "https://m.youtube.com/watch?v=JL30R7f-iBE", answer: "Avernus" },
-            { url: "https://m.youtube.com/watch?v=0GC5og7gVS0", answer: "Tunnel of Despair" },
-            { url: "https://m.youtube.com/watch?v=G7c-EP8Rz98", answer: "Abyss of Darkness" },
-            { url: "https://m.youtube.com/watch?v=-1HykdidMjY", answer: "Kyouki" },
-            { url: "https://m.youtube.com/watch?v=7W5bZJY2IPI", answer: "Slaughterhouse" },
-            { url: "https://m.youtube.com/watch?v=b66_Oe4Xo1w", answer: "Sakupen Circles" },
-            { url: "https://m.youtube.com/watch?v=ulaXL0SdzZk", answer: "KOCMOC" },
-            { url: "https://m.youtube.com/watch?v=MkJK_YHwWgI", answer: "Menace" },
-            { url: "https://m.youtube.com/watch?v=SuaAscUC8UM", answer: "Firework" },
-            { url: "https://m.youtube.com/watch?v=pse3o6pUCzo", answer: "MINUSdry" },
-            { url: "https://m.youtube.com/watch?v=DCbXHYwW7r0", answer: "The Lightning Rod" },
-            { url: "https://m.youtube.com/watch?v=tEm59VdSJGE", answer: "Deimos" },
-            { url: "https://m.youtube.com/watch?v=OkCLVqswX98", answer: "KOSETSU" },
-            { url: "https://m.youtube.com/watch?v=VdVQkK3G234&t=16s", answer: "poocubed" },
-            { url: "https://m.youtube.com/watch?v=8LIrRIGOR-o", answer: "Saul Goodman" },
-            { url: "https://m.youtube.com/watch?v=m-K_rTnRrLA", answer: "Eyes in the water" },
-            { url: "https://m.youtube.com/watch?v=XbbVDhn5XYM", answer: "Solar Flare" },
-            { url: "https://m.youtube.com/watch?v=lhS5t25yQ8A", answer: "Belladonna" },
-            { url: "https://m.youtube.com/watch?v=Mqd6UabJOE4", answer: "The Hallucination" },
-            { url: "https://m.youtube.com/watch?v=KaWAdxssH2w", answer: "COMBUSTION" },
-            { url: "https://m.youtube.com/watch?v=gGz9rPR4pbw", answer: "LIMBO" },
-            { url: "https://m.youtube.com/watch?v=At8bF2pw-qk", answer: "Edge of Destiny" },
-            { url: "https://m.youtube.com/watch?v=ti5G-c3wcM0", answer: "Codependence" },
-            { url: "https://m.youtube.com/watch?v=pKJUmSJR22Y", answer: "Mayhem" },
-            { url: "https://m.youtube.com/watch?v=xg93mOaaG5I", answer: "walter white" },
-            { url: "https://m.youtube.com/watch?v=1MBFbmZXv9s", answer: "Deadlier Clubstep" },
-            { url: "https://m.youtube.com/watch?v=VA9RLSwoRo8", answer: "PSYCHOPATH" },
-            { url: "https://m.youtube.com/watch?v=bPeKRImkZ2U", answer: "SARYYX NEVER CLEAR" },
-            { url: "https://m.youtube.com/watch?v=wHXFFnmMB1Q", answer: "Arcturus" },
-            { url: "https://m.youtube.com/watch?v=MDutuGulI_8&t=1s", answer: "Sinister Silence" },
-            { url: "https://m.youtube.com/watch?v=ok0F32z3WCw", answer: "UNKNOWN" },
-            { url: "https://m.youtube.com/watch?v=UQVNbhQEiLE", answer: "Sonic Wave Infinity" },
-            { url: "https://m.youtube.com/watch?v=4rW5LcILMMo", answer: "Damascus" },
-            { url: "https://m.youtube.com/watch?v=iTtXXMdM8qs", answer: "Midnight" },
-            { url: "https://m.youtube.com/watch?v=ORuFKkED9hg", answer: "Tartarus" },
-            { url: "https://m.youtube.com/watch?v=KgRPhglipsU", answer: "Jigsaw" },
-            { url: "https://m.youtube.com/watch?v=QNs14m3HxJE", answer: "Oblivion" },
-            { url: "https://m.youtube.com/watch?v=CK2xctLZxD0", answer: "BloodLust" },
-            { url: "https://m.youtube.com/watch?v=Xzb7apPvDos", answer: "BloodBath" },
-            // 다른 노래 추가
+            "https://www.youtube.com/embed/frjtBcNI6dI",
+            "https://www.youtube.com/embed/oh0FyZHZST8",
+            "https://www.youtube.com/embed/vnwS2YWCDW8",
+            "https://www.youtube.com/embed/JL30R7f-iBE",
+            "https://www.youtube.com/embed/0GC5og7gVS0",
+            "https://www.youtube.com/embed/A6bn6NmdW0s",
+            "https://www.youtube.com/embed/Q4mFiDQ7nb8",
+            "https://www.youtube.com/embed/AX0Rcy1fCP8",
+            "https://www.youtube.com/embed/O4iBdrqXzFo",
+            "https://www.youtube.com/embed/Hbq-zVJzYxg",
+            "https://www.youtube.com/embed/KlTBpGUX3-g",
+            "https://www.youtube.com/embed/R6Y9MQIk7dI",
+            "https://www.youtube.com/embed/iMTd3I8BzI8",
+            "https://www.youtube.com/embed/QJYw8r0y_uI",
+            "https://www.youtube.com/embed/I6TOQUMew5g",
+            "https://www.youtube.com/embed/D1DwmxLAd6g",
+            "https://www.youtube.com/embed/XZykM3YfDRA",
+            "https://www.youtube.com/embed/5wB-e4wQmKw",
+            "https://www.youtube.com/embed/nmTXqCCcPdk",
+            "https://www.youtube.com/embed/ZUgb8yDkeAY",
+            "https://www.youtube.com/embed/S2y5ZMB4pbE",
+            "https://www.youtube.com/embed/f5dd0zpKjz0",
+            "https://www.youtube.com/embed/o8xVPtP3F5s",
+            "https://www.youtube.com/embed/FsdUwRaHAiI",
+            "https://www.youtube.com/embed/Z8UtLJh3Itk",
+            "https://www.youtube.com/embed/SxxcY7mB_7Q"
         ];
 
-        let currentSongIndex = Math.floor(Math.random() * songs.length);
-        const audio = new Audio(songs[currentSongIndex].url);
+        let currentSongIndex = 0;
 
-        document.getElementById("play").addEventListener("click", () => {
-            audio.play().catch(error => {
-                console.error("오디오 재생 오류:", error);
-                alert("오디오 재생에 실패했습니다. URL을 확인하세요.");
-            });
-        });
+        function playSong(index) {
+            const songPlayer = document.getElementById('songPlayer');
+            songPlayer.src = songs[index];
+        }
 
-        document.getElementById("submit").addEventListener("click", () => {
-            const userAnswer = document.getElementById("answer").value.trim();
-            const resultDiv = document.getElementById("result");
+        function getRandomSong() {
+            return Math.floor(Math.random() * songs.length);
+        }
 
-            if (userAnswer.toLowerCase() === songs[currentSongIndex].answer.toLowerCase()) {
-                resultDiv.textContent = "정답입니다!";
-            } else {
-                resultDiv.textContent = `틀렸습니다. 정답은 ${songs[currentSongIndex].answer}입니다.`;
-            }
-            document.getElementById("answer").value = "";
-            currentSongIndex = Math.floor(Math.random() * songs.length);
-            audio.src = songs[currentSongIndex].url;
-        });
+        function loadNextSong() {
+            currentSongIndex = getRandomSong();
+            playSong(currentSongIndex);
+            document.getElementById('answerInput').value = ''; // 입력란 초기화
+        }
+
+        document.getElementById('nextSongButton').addEventListener('click', loadNextSong);
+
+        // 첫 번째 노래 로드
+        loadNextSong();
     </script>
 </body>
 </html>
-
